@@ -17,12 +17,10 @@ struct ViewHome: View {
     @State var category:CategoryResponse? = nil;
     
     var body: some View {
-        
         NavigationView{
-            
         VStack(alignment: .center){
             
-            Text("Liste de Films")
+            Text("Movies List")
                 .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 10.0)
