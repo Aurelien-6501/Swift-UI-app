@@ -7,9 +7,11 @@
 
 import Foundation
 
+let currentLocale = "&language="+(Locale.preferredLanguages.first ?? "fr-FR");
+
 // Request to catch category
 func fetchCategory() async -> CategoryResponse?{
-    let apiUrl = URL(string: "https://api.themoviedb.org/3/genre/movie/list?language=en?&api_key=9a8f7a5168ace33d2334ba1fe14a83fb")!
+    let apiUrl = URL(string: "https://api.themoviedb.org/3/genre/movie/list?language=en?&api_key=9a8f7a5168ace33d2334ba1fe14a83fb\(currentLocale)")!
     let session = URLSession.shared
     do {
         let request = URLRequest(url: apiUrl)
@@ -26,11 +28,11 @@ func fetchCategory() async -> CategoryResponse?{
 // Request to catch movie by popularity and filtre with the category
 func fetchGenres(idCategory:Int?) async -> DataFilmResponse?{
     
-    var apiUrl = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=9a8f7a5168ace33d2334ba1fe14a83fb&sort_by=popularity.desc")!
+    var apiUrl = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=9a8f7a5168ace33d2334ba1fe14a83fb&sort_by=popularity.desc\(currentLocale)")!
     
     if(idCategory != nil){
         if let id = idCategory {
-            apiUrl = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=9a8f7a5168ace33d2334ba1fe14a83fb&sort_by=popularity.desc&with_genres=" + String(id))!
+            apiUrl = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=9a8f7a5168ace33d2334ba1fe14a83fb&sort_by=popularity.desc\(currentLocale)&with_genres="+String(id))!
         }
     }
 

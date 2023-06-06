@@ -8,7 +8,7 @@
 import Foundation
 
 struct ResponseFilm:Decodable{
-    let original_title:String
+    let title:String
     let overview:String
     let genres: [ResponseCategory]?
     let poster_path:String
@@ -17,8 +17,8 @@ struct ResponseFilm:Decodable{
     let id:Int
     let videos:ResponseVideo?
     
-    init(original_title: String, overview: String, genres: [ResponseCategory]?, poster_path: String, release_date: String, runtime: Int, id: Int, videos: ResponseVideo?) {
-        self.original_title = original_title
+    init(title: String, overview: String, genres: [ResponseCategory]?, poster_path: String, release_date: String, runtime: Int, id: Int, videos: ResponseVideo?) {
+        self.title = title
         self.overview = overview
         self.genres = genres
         self.poster_path = poster_path
@@ -34,15 +34,15 @@ struct DataFilmList:Decodable, Hashable{
     let adult:Bool?
     let release_date:String?
     let poster_path:String?
-    let original_title:String?
+    let title:String?
     let overview:String?
     
-    init(id: Int?, adult: Bool?, release_date: String?, poster_path: String?, original_title: String?, overview: String?) {
+    init(id: Int?, adult: Bool?, release_date: String?, poster_path: String?, title: String?, overview: String?) {
         self.id = id
         self.adult = adult
         self.release_date = release_date
         self.poster_path = poster_path
-        self.original_title = original_title
+        self.title = title
         self.overview = overview
     }
 }

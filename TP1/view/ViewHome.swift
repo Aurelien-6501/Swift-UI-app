@@ -20,7 +20,7 @@ struct ViewHome: View {
         NavigationView{
         VStack(alignment: .center){
             
-            Text("Movies List")
+            Text("Movie")
                 .font(.headline)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 10.0)
@@ -55,7 +55,7 @@ struct ViewHome: View {
                     if let movies = self.movie?.results {
                         ForEach(movies, id : \.self){
                             movie in
-                            if let title = movie.original_title , let date = movie.release_date, let image_path = movie.poster_path, let _  = movie.adult, let description = movie.overview, let id = movie.id{
+                            if let title = movie.title , let date = movie.release_date, let image_path = movie.poster_path, let _  = movie.adult, let description = movie.overview, let id = movie.id{
                                 //Picture of the movie
                                 HStack{
                                     AsyncImage(url:URL(string:"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/"+image_path))

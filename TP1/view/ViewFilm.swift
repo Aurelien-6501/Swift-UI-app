@@ -37,7 +37,7 @@ struct ViewFilm: View{
                         
                         VStack(){
                             //Title
-                            Text(movie.original_title)
+                            Text(movie.title)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
                                 .padding(.bottom, 10.0)
