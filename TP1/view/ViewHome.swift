@@ -18,6 +18,8 @@ struct ViewHome: View {
     
     var body: some View {
         
+        NavigationView{
+            
         VStack(alignment: .center){
             
             Text("Liste de Films")
@@ -50,8 +52,6 @@ struct ViewHome: View {
                 }
             }
             .padding(0.0)
-            
-            NavigationView{
                 
                 List{
                     if let movies = self.movie?.results {
